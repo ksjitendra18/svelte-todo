@@ -56,21 +56,9 @@ const fetchTodos = async () => {
 };
 
 export async function load() {
-	console.log('this is todos', await fetchTodos());
 	return {
 		body: {
 			todos: await fetchTodos()
 		}
 	};
 }
-
-export async function handleDeleteTodo(id) {
-	console.log('object');
-}
-
-const handleDelete = async (id) => {
-	console.log('you clicked', id);
-	console.log('hello', userId);
-
-	await deleteDoc(doc(db, userId, id));
-};
