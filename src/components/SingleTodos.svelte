@@ -1,6 +1,6 @@
 <script>
 	export let todo;
-
+	import { invalidateAll, invalidate } from '$app/navigation';
 	console.log(todo);
 
 	async function handleDelete(todoId) {
@@ -11,7 +11,16 @@
 				'content-type': 'application/json'
 			}
 		});
+		invalidateAll();
 	}
+
+	// import { db } from '../firebase';
+	// import { deleteDoc, doc } from 'firebase/firestore';
+	// async function handleDelete(todoId) {
+	// 	await deleteDoc(doc(db, 'todos', todoId));
+	// 	console.log('deleted', todoId);
+	// 	invalidateAll();
+	// }
 </script>
 
 <div class="bg-slate-900 flex justify-between items-center px-5 py-2 text-white rounded-lg">

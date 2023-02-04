@@ -20,6 +20,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sentry/svelte": "^7.29.0",
+		"@sentry/tracing": "^7.29.0",
 		"daisyui": "^2.46.1",
 		"firebase": "^9.15.0"
 	}

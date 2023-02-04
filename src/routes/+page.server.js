@@ -55,7 +55,19 @@ const fetchTodos = async () => {
 	return todosArray;
 };
 
+import { deleteDoc, doc } from 'firebase/firestore';
+
+export async function DELETE({ request }) {
+	const todoId = await request.json();
+	console.log('todo id is', todoId);
+	await deleteDoc(doc(db, 'todos', todoId));
+	console.log('deleted');
+
+	return new Response({ success: true });
+}
+
 export async function load() {
+	console.log('this is todos', await fetchTodos());
 	return {
 		body: {
 			todos: await fetchTodos()
